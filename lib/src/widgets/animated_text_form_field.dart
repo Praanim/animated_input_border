@@ -5,22 +5,44 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// A customizable text field widget with an animated border effect.
+///
+/// The `AnimatedTextField` enhances the standard `TextField` widget by adding
+/// an animated border that responds to user interactions, such as focusing
+/// or unfocusing. This widget supports customization of border color, width,
+/// animation duration, and input decoration styles.
+///
+/// ### Features
+/// - Animated border effect triggered by focus changes.
+/// - Customizable border color, width, and animation duration.
+/// - Fully supports `InputDecoration` for additional styling options.
+/// - Ensures a consistent border radius of 8.0 for the animated border.
+///
+/// Note: User can pass styling of focusedBorder but its border is overriden by custom paint
+/// thus border radius will always be 8.0
+/// however other styling can be passed.
+///
 class AnimatedTextFormField extends StatefulWidget {
   /// Animation-specific properties
   ///
+  /// Note: [borderColor] and [decoration.focusedBorder] both cannot have values at the same time
+  /// Either one of them should be given certain [Color] value.
+  ///
   /// [borderColor] is the color which gives animation effect when [focusNode] is focused
-  /// [borderColor] takes value from [decoration.focusedBorder]
-  /// else [Colors.blue]
+  /// [borderColor] takes value from [decoration.focusedBorder].
+  ///  In case [decoration.focusedBorder] is null, only then [borderColor] is used
   ///
-  /// Note: User can pass styling of focusedBorder but its border is overriden by custom paint
-  /// however styling like border color and border width is taken into consideration and applied
-  /// as passed
-  ///
-  final Color borderColor;
+  final Color? borderColor;
 
-  /// Same as above
-  /// [borderWidth] takes value from [decoration.focusedBorder]
-  final double borderWidth;
+  /// Width of the border for the animated effect
+  ///
+  /// Note: [borderWidth] and [decoration.focusedBorder] both cannot have values at the same time.
+  /// Either one of them should be given a certain [double] value.
+  ///
+  /// First [borderWidth] takes its value from [decoration.focusedBorder].
+  /// In case [decoration.focusedBorder] is null, only then [borderWidth] is used.
+  ///
+  final double? borderWidth;
 
   ///Animation duration
   ///
@@ -104,8 +126,8 @@ class AnimatedTextFormField extends StatefulWidget {
 
   const AnimatedTextFormField({
     super.key,
-    this.borderColor = Colors.blue,
-    this.borderWidth = 2.0,
+    this.borderColor,
+    this.borderWidth,
     this.animationDuration = const Duration(milliseconds: 800),
     this.groupId = EditableText,
     this.controller,
@@ -207,6 +229,8 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField>
       duration: widget.animationDuration,
     );
 
+    _handleConflictingProperties();
+
     // applies consistent border
     _inputDecoration = _applyConsistentBorderStyle(widget.decoration);
 
@@ -221,7 +245,7 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField>
         if (_focusNode.hasFocus) {
           _animationController.forward();
         } else {
-          _animationController.reverse(from: 0.8);
+          _animationController.reverse();
         }
       },
     );
@@ -363,5 +387,22 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField>
               ),
               child: child);
         });
+  }
+
+  /// This method checks for conflicting properties between [borderColor], [borderWidth], and
+  /// the respective values in [decoration.focusedBorder]. It prints a warning if both the
+  /// properties are provided at the same time and informs the developer about which property
+  /// takes priority.
+  ///
+  void _handleConflictingProperties() {
+    final borderSide = widget.decoration?.focusedBorder?.borderSide;
+    if (widget.borderColor != null && borderSide?.color != null) {
+      debugPrint(
+          'Warning: Both [borderColor] and [decoration.focusedBorder.borderSide.color] are provided. The latter will be prioritized.');
+    }
+    if (widget.borderWidth != null && borderSide?.width != null) {
+      debugPrint(
+          'Warning: Both [borderWidth] and [decoration.focusedBorder.borderSide.width] are provided. The latter will be prioritized.');
+    }
   }
 }

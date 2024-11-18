@@ -27,20 +27,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Center(
             child: AnimatedTextFormField(
-          animationDuration: Duration(milliseconds: 2000),
-          decoration: InputDecoration(
-              hintText: "sddasd",
-              labelText: 'ad',
-              border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                  borderRadius: BorderRadius.all(Radius.circular(50.0))),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue))),
+          borderColor: Colors.amber,
+          decoration: const InputDecoration(
+            hintText: "sddasd",
+            labelText: 'ad',
+            border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+                borderRadius: BorderRadius.all(Radius.circular(50.0))),
+            // focusedBorder: OutlineInputBorder(
+            //   borderSide: BorderSide(),
+            // ),
+          ),
         )),
       ),
     );

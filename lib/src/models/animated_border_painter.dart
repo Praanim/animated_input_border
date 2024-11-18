@@ -4,30 +4,30 @@ import 'package:flutter/material.dart';
 class AnimatedBorderPainter extends CustomPainter {
   /// Border color
   ///
-  final Color borderColor;
+  final Color? borderColor;
 
   /// stroke width
   ///
-  final double strokeWidth;
+  final double? strokeWidth;
 
   /// Animation Value ranging from 0.0 to 1.0
   ///
   final double animationValue;
 
-  /// constructor
+  /// Class which paints the animated border around the textfield
   ///
   const AnimatedBorderPainter({
-    required this.borderColor,
-    required this.strokeWidth,
+    this.borderColor,
+    this.strokeWidth,
     required this.animationValue,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..strokeWidth = strokeWidth
+      ..strokeWidth = strokeWidth ?? 2.0
       ..style = PaintingStyle.stroke
-      ..color = borderColor;
+      ..color = borderColor ?? Colors.deepPurple;
 
     // final paint2 = Paint()
     //   ..strokeWidth = 2.0
