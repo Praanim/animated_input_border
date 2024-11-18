@@ -256,35 +256,49 @@ class _AnimatedTextFormFieldState extends State<AnimatedTextFormField>
       InputDecoration? inputDecoration) {
     if (inputDecoration == null) return null;
 
-    final InputBorder? userBorder = inputDecoration.border;
+    // Extract borders from the input decoration
+    InputBorder? userBorder = inputDecoration.border;
+    InputBorder? errorBorder = inputDecoration.errorBorder;
+    InputBorder? enabledBorder = inputDecoration.enabledBorder;
+    InputBorder? focusedBorder = inputDecoration.focusedBorder;
+    InputBorder? disabledBorder = inputDecoration.disabledBorder;
+    InputBorder? focusedErrorBorder = inputDecoration.focusedErrorBorder;
 
-    // border radius -> 8.0
+    // Consistent border radius
     final borderRadius8 = BorderRadius.circular(8.0);
 
-    // Check the type of InputBorder and modify it if necessary
-    InputBorder? updatedBorder;
-    if (userBorder is OutlineInputBorder) {
-      // Ensure a consistent BorderRadius for OutlineInputBorder
-      updatedBorder = userBorder.copyWith(
-        borderRadius: borderRadius8,
-      );
-    } else if (userBorder is UnderlineInputBorder) {
-      // Modify UnderlineInputBorder's color or properties if needed
-      updatedBorder = userBorder.copyWith(
-        borderRadius: borderRadius8,
-      );
-    } else if (userBorder == InputBorder.none) {
-      // No border customization needed
-      updatedBorder = InputBorder.none;
-    }
-
+    // Return the updated InputDecoration with consistent border styles
     return inputDecoration.copyWith(
-      border: updatedBorder,
-      enabledBorder: updatedBorder,
-      focusedBorder: updatedBorder,
-      errorBorder: updatedBorder,
-      disabledBorder: updatedBorder,
-      focusedErrorBorder: updatedBorder,
+      border: userBorder is OutlineInputBorder
+          ? userBorder.copyWith(borderRadius: borderRadius8)
+          : userBorder is UnderlineInputBorder
+              ? userBorder.copyWith(borderRadius: borderRadius8)
+              : userBorder,
+      enabledBorder: enabledBorder is OutlineInputBorder
+          ? enabledBorder.copyWith(borderRadius: borderRadius8)
+          : enabledBorder is UnderlineInputBorder
+              ? enabledBorder.copyWith(borderRadius: borderRadius8)
+              : enabledBorder,
+      focusedBorder: focusedBorder is OutlineInputBorder
+          ? focusedBorder.copyWith(borderRadius: borderRadius8)
+          : focusedBorder is UnderlineInputBorder
+              ? focusedBorder.copyWith(borderRadius: borderRadius8)
+              : focusedBorder,
+      errorBorder: errorBorder is OutlineInputBorder
+          ? errorBorder.copyWith(borderRadius: borderRadius8)
+          : errorBorder is UnderlineInputBorder
+              ? errorBorder.copyWith(borderRadius: borderRadius8)
+              : errorBorder,
+      disabledBorder: disabledBorder is OutlineInputBorder
+          ? disabledBorder.copyWith(borderRadius: borderRadius8)
+          : disabledBorder is UnderlineInputBorder
+              ? disabledBorder.copyWith(borderRadius: borderRadius8)
+              : disabledBorder,
+      focusedErrorBorder: focusedErrorBorder is OutlineInputBorder
+          ? focusedErrorBorder.copyWith(borderRadius: borderRadius8)
+          : focusedErrorBorder is UnderlineInputBorder
+              ? focusedErrorBorder.copyWith(borderRadius: borderRadius8)
+              : focusedErrorBorder,
     );
   }
 

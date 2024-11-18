@@ -32,13 +32,33 @@ class HomePage extends StatelessWidget {
         title: const Text('Animated TextFormField Example'),
         backgroundColor: const Color.fromARGB(255, 101, 71, 152),
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            AnimatedTextFormField(
+              decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                      borderSide:
+                          const BorderSide(color: Colors.amber, width: 2.0)),
+                  border: UnderlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: const BorderSide(color: Colors.deepOrange))),
+            ),
+            AnimatedTextFormField(
+              borderColor: Colors.deepOrange,
+              borderWidth: 2.0,
+              decoration: InputDecoration(border: InputBorder.none
+                  // border: InputBorder.none,
+                  // focusedBorder: InputBorder.none,
+                  ),
+            ),
             //
-            // First AnimatedTextFormField
+            SizedBox(height: 20),
+            //
+            // Second AnimatedTextFormField
             //
             AnimatedTextFormField(
               textInputAction: TextInputAction.next,
