@@ -1,16 +1,33 @@
-# example
+# Animated Text Form Field
 
-A new Flutter project.
+A Flutter package to create customizable, animated `TextFormField` widgets with focus-based animations. This package allows you to animate the border color and width of text fields when focused, providing a smooth and dynamic user experience.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Focus-based animation**: The border color and width can be animated when the text field is focused.
+- **Customizable**: Allows you to customize the border color, width, and animation duration in addition to existing properties of TextFormField.
+- **Flexible styling**: You can provide custom decoration for the text field while ensuring that the animation properties are respected.
+- **Automatic prioritization**: If both `borderColor` and `decoration.focusedBorder` are provided, the border color from `decoration.focusedBorder` takes precedence.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Add the following dependency to your `pubspec.yaml` file:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  animated_text_form_field: # Replace with the latest version
+```
+
+Run the command get the dependency
+
+```command
+$ flutter pub get
+```
+
+Import it in your dart code, you can use
+
+```dart
+import 'package:animated_text_field/animated_text_field.dart';
+```
+
+## Usage 🤯
