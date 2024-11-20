@@ -1,6 +1,6 @@
 name: animated_input_border
 description: "A Flutter package that provides an animated Input Border for Input Fiels . The border dynamically animates as the user interacts with the field, changing its appearance based on the animation value."
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/Praanim/animated_input_border
 homepage:
 
