@@ -116,7 +116,7 @@ class _AnimatedInputFocusedBorderExampleState
 
     // animation controller for focused border example
     _animationFocusedBorder = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 800));
+        vsync: this, duration: const Duration(milliseconds: 2000));
 
     // listener function for the animation when the border is focused.
     _animateBorderOnFocusChange();
@@ -151,15 +151,14 @@ class _AnimatedInputFocusedBorderExampleState
           return TextFormField(
             focusNode: focusNode,
             decoration: InputDecoration(
-                label: const Text("Focused Border Animation"),
                 border: const OutlineInputBorder(),
                 focusedBorder: AnimatedInputBorder(
-                    animationValue: _animationFocusedBorder.value,
+                    // animationValue: _animationFocusedBorder.value,
                     borderRadius: BorderRadius.circular(20.0),
                     borderSide: const BorderSide(
-                      width: 2,
-                      color: Colors.deepPurple,
-                    )),
+                      width: 3,
+                      color: Colors.green,
+                    )).scale(_animationFocusedBorder.value),
                 hintText: "Enter value"),
           );
         },
