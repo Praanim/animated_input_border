@@ -1,3 +1,9 @@
+# Changelog
+
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Initial release of the package.
+- Added basic functionality for animated input border with customizable border radius, padding, and animation.
+- Supported focus state-based border animation.
+- Provided default implementation for `InputBorder` with animation capabilities.
+- Introduced support for customizable gap and radius adjustments.
