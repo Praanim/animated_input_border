@@ -1,3 +1,3 @@
 library animated_text_field;
 
-export 'src/widgets/animated_text_form_field.dart';
+export 'src/models/animated_input_border.dart';
