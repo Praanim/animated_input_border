@@ -156,7 +156,10 @@ class _AnimatedInputFocusedBorderExampleState
                 focusedBorder: AnimatedInputBorder(
                     animationValue: _animationFocusedBorder.value,
                     borderRadius: BorderRadius.circular(20.0),
-                    borderSide: const BorderSide(width: 2)),
+                    borderSide: const BorderSide(
+                      width: 2,
+                      color: Colors.deepPurple,
+                    )),
                 hintText: "Enter value"),
           );
         },
