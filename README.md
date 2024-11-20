@@ -50,7 +50,7 @@ TextFormField(
 
 <br>
 
-![alt text](focused_border_animation.gif)
+![](https://raw.githubusercontent.com/Praanim/animated_input_border/refs/heads/main/focused_border_animation.gif)
 
 ## Other Examples 🤯
 
@@ -73,7 +73,7 @@ TextFormField(
 
 <br>
 
-![alt text](ScreenRecording2024-11-20at13.35.31-ezgif.com-video-to-gif-converter.gif)
+![](https://raw.githubusercontent.com/Praanim/animated_input_border/refs/heads/main/ScreenRecording2024-11-20at13.35.31-ezgif.com-video-to-gif-converter.gif)
 
 ## Contributions
 

@@ -7,3 +7,7 @@
 - Supported focus state-based border animation.
 - Provided default implementation for `InputBorder` with animation capabilities.
 - Introduced support for customizable gap and radius adjustments.
+
+## 0.0.2
+
+- Added Documentation
