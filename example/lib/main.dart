@@ -1,4 +1,4 @@
-import 'package:animated_text_field/animated_text_field.dart';
+import 'package:animated_input_border/animated_input_border.dart';
 import 'package:flutter/material.dart';
 
 void main() {

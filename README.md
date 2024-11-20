@@ -1,43 +1,135 @@
-# animated_text_field
+# Animated Input Border
 
-A Flutter package that provides an animated border effect for TextFormField. The border dynamically animates as the user interacts with the field, changing its appearance based on focus.
+A Flutter package that provides a customizable, animated border for text fields, enhancing UI design with smooth transitions based on user interaction (e.g., focus or input changes)
 
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Key Features
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+> Animate text field borders when gaining or losing focus.
+> Customizable border radius, width, and colors.
+> Support for gap padding to accommodate floating labels or gaps.
+> Smooth and visually appealing animations using an AnimationController.
+> Seamless integration with TextFormField and InputDecoration.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Getting Started 🔥
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Begin by adding **NaxaAlert** as a dependency to your project.
+
+```yaml
+dependencies:
+  naxa_alert: <latest_version>
+```
+
+Run the command get the dependency
+
+```command
+$ flutter pub get
+```
+
+Import it in your dart code, you can use
+
+```dart
+import 'package:naxa_alert/naxa_alert.dart';
+```
+
+To display alert use <code>NaxaAlert.show()</code> and define the <code>type</code> of alert.
+
+```dart
+NaxaAlert.show(
+  context: context,
+  type: NaxaAlertBoxType.success,
+); // That's it. You can customize it with additional properties.
+```
+
+<div style="display: flex; gap: 10px;">
+  <img src="Screenshot 2024-11-14 at 15.45.35.png" alt="alt text" width="200" height="200">
+  <img src="Screenshot 2024-11-14 at 15.46.20.png" alt="alt text" width="200" height="200">
+  <img src="Screenshot 2024-11-14 at 15.45.58.png" alt="alt text" width="200" height="200">
+  <img src="Screenshot 2024-11-14 at 15.45.48.png" alt="alt text" width="200" height="200">
+</div>
+
+## Examples 🤫
+
+There is a detailed example project in the <code>example</code> folder. You can directly run and play on it. There are code snippets from example project below.
+
+> ### Success
+
+```dart
+NaxaAlert.show(
+  context: context,
+  type: NaxaAlertBoxType.success,
+  text: 'Upload Completed Successfully!',
+);
+```
+
+<br>
+
+> ### Error
+
+```dart
+NaxaAlert.show(
+  context: context,
+  type: NaxaAlertBoxType.error,
+  title: 'Oops...',
+  text: 'Sorry, something went wrong',
+);
+```
+
+<br>
+
+> ### Warning
+
+```dart
+NaxaAlert.show(
+ context: context,
+ type: NaxaAlertBoxType.warning,
+ text: 'Your internet connection is slow.',
+);
+```
+
+<br>
+
+> ### Info
+
+```dart
+NaxaAlert.show(
+ context: context,
+ type: NaxaAlertBoxType.info,
+ text: 'Your app has an update.',
+);
+```
+
+<br>
+
+# Animated Text Form Field
+
+A Flutter package to create customizable, animated `TextFormField` widgets with focus-based animations. This package allows you to animate the border color and width of text fields when focused, providing a smooth and dynamic user experience.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Focus-based animation**: The border color and width can be animated when the text field is focused.
+- **Customizable**: Allows you to customize the border color, width, and animation duration in addition to existing properties of TextFormField.
+- **Flexible styling**: You can provide custom decoration for the text field while ensuring that the animation properties are respected.
+- **Automatic prioritization**: If both `borderColor` and `decoration.focusedBorder` are provided, the border color from `decoration.focusedBorder` takes precedence.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the following dependency to your `pubspec.yaml` file:
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  animated_text_form_field: # Replace with the latest version
 ```
 
-## Additional information
+Run the command get the dependency
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```command
+$ flutter pub get
+```
+
+Import it in your dart code, you can use
+
+```dart
+import 'package:animated_text_field/animated_text_field.dart';
+```
+
+## Usage 🤯

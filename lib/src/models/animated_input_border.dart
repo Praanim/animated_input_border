@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:animated_text_field/src/models/extract_animation_path.dart';
+import 'package:animated_input_border/src/models/extract_animation_path.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
